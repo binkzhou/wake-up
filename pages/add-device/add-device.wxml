@@ -1,0 +1,9 @@
+<view>
+  <view class="add-device__wrapper">
+    <t-input value="{{name}}" label="名称" placeholder="最多20个字符" maxcharacter="{{20}}" bind:change="handleChangeName"/>
+    <t-input value="{{mac}}" label="MAC" placeholder="MAC地址" bind:change="handleChangeMac"/>
+    <t-input value="{{address}}" label="地址" placeholder="IP地址或网址" bind:change="handleChangeAddr"/>
+    <t-input value="{{port}}" label="端口" type="number" placeholder="0~65535" bind:change="handleChangePort"/>
+  </view>
+  <t-fab icon="save" bind:click="handleSave"></t-fab>
+</view>

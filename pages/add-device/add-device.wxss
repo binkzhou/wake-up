@@ -1,0 +1,4 @@
+/* pages/add-device/add-device.wxss */
+.add-device__wrapper{
+  margin-top: 10px;
+}

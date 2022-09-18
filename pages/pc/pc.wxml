@@ -1,0 +1,32 @@
+<view>
+  <t-fab wx:if="{{list.length>0}}" icon="add" bind:click="handleClick" />
+  <view wx:for="{{list}}" class="pc__list" wx:key="key">
+    <t-swipe-cell>
+      <t-cell class="pc__item" bordered="{{false}}" title="{{item.name}}" description="" t-class-image="title-image-large" image="https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-ui/components-exp/placeholder/quartet.svg">
+        <t-button slot="right-icon" t-class="pc__run" theme="primary" icon="caret-right" size="large" shape="square" disabled="{{disabled}}" data-item="{{item}}" bind:tap="hanldeSend"></t-button>
+        <view slot="description">
+          <view>
+            <text>网络:{{item.address}}</text>
+            <text>端口:{{item.port}}</text>
+          </view>
+          <view>MAC地址 {{item.mac}}</view>
+        </view>
+      </t-cell>
+
+      <view slot="right" class="t-swipe-cell-demo-btn-wrapper">
+        <view class="t-swipe-cell-demo-btn edit-btn" data-id="{{item.id}}" bind:tap="handleEdit">编辑</view>
+        <view class="t-swipe-cell-demo-btn delete-btn" data-id="{{item.id}}" bind:tap="handleDelete">删除</view>
+      </view>
+    </t-swipe-cell>
+  </view>
+
+
+  <view wx:if="{{list.length===0}}" class="pc__empty">
+    <t-empty t-class="empty-cls" icon="pc" description="暂无PC设备">
+      <!-- <t-button slot="action" t-class="t-empty__button" theme="primary">添加设备</t-button> -->
+    </t-empty>
+    <t-button t-class="t-empty__button" theme="primary" icon="add" shape="round" bind:tap="handleClick">
+      <text>添加设备</text>
+    </t-button>
+  </view>
+</view>
